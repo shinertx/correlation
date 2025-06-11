@@ -1,9 +1,3 @@
-Here is your institutional-grade **`PROJECT_BIBLE.md`** for the **Cluster Outlier Catalyst Engine (COCE)**.
-It’s designed to be the **source-of-truth blueprint** that guides all engineers, researchers, and quants toward building a **1-in-a-billion** asymmetric return system—modular, testable, adversarially resilient, and focused on compounding 1000%+ microcap pump days.
-
----
-
-```markdown
 # PROJECT_BIBLE.md
 
 ## Cluster Outlier Catalyst Engine (COCE)
@@ -15,7 +9,7 @@ It’s designed to be the **source-of-truth blueprint** that guides all engineer
 
 Design and deploy a modular, adversarially-aware, ultra-convex alpha engine that captures edge from microcap crypto pumps before contagion spreads.
 
-**Mission:**  
+**Mission:**
 Capture 10×–100× trades through early signal detection (social + volume + graph outliers), concentrate capital in <3 assets/day, and aggressively compound edge while containing downside risk.
 
 ---
@@ -23,50 +17,48 @@ Capture 10×–100× trades through early signal detection (social + volume + gr
 ## 2. Core Modules
 
 ```
-
 /src/
-/data\_ingest/
-price\_loader.py         # OHLCV and volume from CEX + DEX
-social\_scraper.py       # Telegram, X, Discord pump groups
-volume\_anomaly.py       # Detect 3σ spikes, rolling volume Z-score
+/data_ingest/
+price_loader.py         # OHLCV and volume from CEX + DEX
+social_scraper.py       # Telegram, X, Discord pump groups
+volume_anomaly.py       # Detect 3σ spikes, rolling volume Z-score
 
-/network\_analysis/
-corr\_matrix.py          # 7/30-day rolling correlation
-graph\_builder.py        # Pruned graph, MST
+/network_analysis/
+corr_matrix.py          # 7/30-day rolling correlation
+graph_builder.py        # Pruned graph, MST
 clustering.py           # Louvain, centrality calc, Z-score divergence
 
-/signal\_engine/
-outlier\_detector.py     # Detects coins with Z-score > 2.5 from cluster
-pump\_predictor.py       # NLP + heuristic classifier for social pump intent
-forecast\_filter.py      # Optional ARIMA/momentum overlay for confirmation
+/signal_engine/
+outlier_detector.py     # Detects coins with Z-score > 2.5 from cluster
+pump_predictor.py       # NLP + heuristic classifier for social pump intent
+forecast_filter.py      # Optional ARIMA/momentum overlay for confirmation
 
 /execution/
-trade\_manager.py        # Executes, tracks PnL, manages exits
-ccxt\_router.py          # Unified trade execution across CEX + DEX
+trade_manager.py        # Executes, tracks PnL, manages exits
+ccxt_router.py          # Unified trade execution across CEX + DEX
 
-/risk\_guardrails/
-liquidity\_limits.py     # Reject trades under volume threshold
-max\_drawdown.py         # Global drawdown limits, trade freezes
+/risk_guardrails/
+liquidity_limits.py     # Reject trades under volume threshold
+max_drawdown.py         # Global drawdown limits, trade freezes
 
 /tests/
-test\_data\_ingest.py
-test\_signal\_engine.py
-test\_execution.py
-test\_risk.py
+test_data_ingest.py
+test_signal_engine.py
+test_execution.py
+test_risk.py
 
 /notebooks/
-0\_data\_prep.ipynb
-1\_network\_outliers.ipynb
-2\_pump\_backtest.ipynb
-3\_signal\_replay.ipynb
-4\_slippage\_simulator.ipynb
+0_data_prep.ipynb
+1_network_outliers.ipynb
+2_pump_backtest.ipynb
+3_signal_replay.ipynb
+4_slippage_simulator.ipynb
 
 /infra/
 Dockerfile
 .env.example
 ci.yml
 deploy.sh
-
 ```
 
 ---
@@ -115,14 +107,14 @@ deploy.sh
 
 | Module              | Output                                  |
 |---------------------|------------------------------------------|
-| `pump_replay.py`    | Reconstructs historical signals from 20+ known pump events (FEG, SHIB, etc.)  
-| `execution_sim.py`  | Slippage-adjusted returns vs signal timing  
-| `score_metrics.py`  | Precision/Recall of pump_predictor  
-| `trade_compounder.py` | Simulates bankroll growth from real + synthetic pump sequences  
+| `pump_replay.py`    | Reconstructs historical signals from 20+ known pump events (FEG, SHIB, etc.)|
+| `execution_sim.py`  | Slippage-adjusted returns vs signal timing|
+| `score_metrics.py`  | Precision/Recall of pump_predictor|
+| `trade_compounder.py` | Simulates bankroll growth from real + synthetic pump sequences|
 
-✅ Required:  
-- PnL histogram with ≥ 1% of trades returning ≥ 10×  
-- Cumulative return ≥ 10× in simulation within <60 trades  
+✅ Required:
+- PnL histogram with ≥ 1% of trades returning ≥ 10×
+- Cumulative return ≥ 10× in simulation within <60 trades
 - Live precision ≥ 50%, recall ≥ 20%, false positive rate < 10%
 
 ---
@@ -164,23 +156,11 @@ deploy.sh
 
 ## 9. Summary & Enforcement
 
-This document supersedes all wikis, comments, notebooks, or README files.  
-No module, signal, or trade is valid unless it aligns to this specification.  
-No experiment is accepted without reproducibility and log traceability.  
+This document supersedes all wikis, comments, notebooks, or README files.
+No module, signal, or trade is valid unless it aligns to this specification.
+No experiment is accepted without reproducibility and log traceability.
 All capital at risk must be justified by simulation + signal validation.
 
 ---
 
 > **Build once. Aim rare. Compound forever.**
-```
-
----
-
-✅ This `PROJECT_BIBLE.md` defines **what to build**, **how to build it**, **how to test it**, **how to scale it**, and **what must never be violated**.
-
-Let me know if you want:
-
-* A matching `README.md`
-* A scaffolding generator
-* CI config + coverage rules
-* Or Phase 1 modules (pump replay, predictor testbench) bootstrapped live.
